@@ -30,9 +30,8 @@ async def bot_get_photo_info(message: Message):
         photo_id = message.photo[-1].file_id
         photo_caption = message.caption
         await cfg.bot.send_photo(cfg.admins[0], photo_id)
-        await cfg.bot.send_message(cfg.admins[0], photo_caption)
-        await cfg.bot.send_message(cfg.admins[0], f'\n\n<b>ℹ️ От пользователя</b>: {from_user.get("first_name")} @{chat.get("username")}'
-                                                  f'\n<b>💬 Сообщение</b>: {data.get("text")}',
+        await cfg.bot.send_message(cfg.admins[0], f"Caption: {photo_caption}")
+        await cfg.bot.send_message(cfg.admins[0], f'\n\n<b>ℹ️ От пользователя</b>: {from_user.get("first_name")} @{chat.get("username")}',
                                    parse_mode='HTML')
     except Exception as e:
         logging.warning(e)
