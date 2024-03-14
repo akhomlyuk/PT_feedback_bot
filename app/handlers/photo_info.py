@@ -1,8 +1,7 @@
 from aiogram import Router, F
-from aiogram.types import Message, FSInputFile
+from aiogram.types import Message
 import app.config.cfg as cfg
 import logging
-import json
 
 router: Router = Router()
 
