@@ -11,9 +11,7 @@ async def bot_get_photo_info(message: Message):
         logging.info(message.from_user)
     try:
         photo_id = message.photo[-1].file_id
-        file = FSInputFile(photo_id)
-        file_info = await cfg.bot.get_file(file)
-        await cfg.bot.send_document(cfg.admins[0], file_info)
+        await cfg.bot.send_document(cfg.admins[0], photo_id)
     except Exception as e:
         logging.warning(e)
         await message.answer(f'{e}')
