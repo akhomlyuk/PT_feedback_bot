@@ -30,8 +30,9 @@ async def bot_get_message_info(message: Message):
         json_data = json.dumps(data, indent=2)
         await bot.send_message(cfg.admins[0], f'<b>message_from_user</b>\n<code>{json_fromuser}</code>\n'
                                               f'<b>message_chat</b>\n<code>{json_chat}</code>\n'
-                                              f'<b>message</b>\n<code>{json_data}</code>'
-                                              f'\n\n<b>ℹ️ От пользователя</b>: {from_user.get("first_name")} @{chat.get("username")}'
+                                              f'<b>message</b>\n<code>{json_data}</code>',
+                               parse_mode='HTML')
+        await bot.send_message(cfg.admins[0], f'\n\n<b>ℹ️ От пользователя</b>: {from_user.get("first_name")} @{chat.get("username")}'
                                               f'\n<b>💬 Сообщение</b>: {data.get("text")}',
                                parse_mode='HTML')
         await message.answer("✅ Ваше сообщение отправлено, автор постарается ответить в ближайшее время")
