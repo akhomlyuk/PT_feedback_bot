@@ -3,7 +3,7 @@ import logging
 import os
 from aiogram import Dispatcher, types
 import app.config.cfg as cfg
-from app.handlers import help, message_info
+from app.handlers import help, message_info, photo_info
 from sys import platform
 
 if platform == "win32":
@@ -21,6 +21,7 @@ dp = Dispatcher()
 # Подключаем роутеры
 dp.include_router(help.router)
 dp.include_router(message_info.router)
+dp.include_router(photo_info.router)
 
 
 @dp.errors()
